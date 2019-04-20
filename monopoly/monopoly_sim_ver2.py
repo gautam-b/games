@@ -3,7 +3,7 @@ Monopoly board game simulation.
 
 Done:
 * Simple simulation
-* Incorporated jail rule for three time double roll
+* Jail rule for three time double roll and "GO TO JAIL" square
 
 TODO:
 * Incorporate community and chance rules ((https://monopoly.fandom.com/wiki/Community_Chest))

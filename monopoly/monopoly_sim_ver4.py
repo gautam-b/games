@@ -3,10 +3,9 @@ Monopoly board game simulation.
 
 Done:
 * Simple simulation
-* Incorporated jail rule for three time double roll
-* Incorporate community chest rules (https://monopoly.fandom.com/wiki/Community_Chest)
-* Incorporate chance rules (https://monopoly.fandom.com/wiki/Chance)
-
+* Jail rule for three time double roll and "GO TO JAIL" square
+* Community chest rules (https://monopoly.fandom.com/wiki/Community_Chest)
+* Chance rules (https://monopoly.fandom.com/wiki/Chance)
 '''
 
 import random
@@ -45,8 +44,7 @@ def two_dice_roll():
     return value, double
 
 
-def print_result(counts):
-    sum_of_counts = sum(counts)
+def print_result(counts, sum_of_counts):
     print(sum_of_counts)
     print(f"Number of iteration: {ITERATION:,}", end="\n\n")
     print("Position | Frequency (%)")
@@ -161,8 +159,8 @@ def main():
 
 if __name__=="__main__":
     counts = main()
-    print_result(counts)
     sum_of_counts = sum(counts)
+    print_result(counts, sum_of_counts)
     prob = [(num/sum_of_counts)*100 for num in counts]
     file_name = f"{__file__.split('.')[0]}.jpg"
     draw_prob(prob, file_name=file_name)

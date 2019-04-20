@@ -1,0 +1,36 @@
+﻿The objective of the game is to bankrupt all opponents, though most gamesplayed with family and friends
+end when it is apparent that someone willwin.
+
+A typical game of MONOPOLYR©uses the following items:
+* game board
+* dice
+* token for players (11 official MONOPOLYR©ones)
+* 32 houses
+* 12 hotels
+* 16 Chance cards
+* 16 Community Chest cards
+* property deeds for each of the 22 MONOPOLYR©properties
+* $15140 in MONOPOLYR©money
+
+The Chance and Community Chest cards are placed face down on the gameboard, and a player must pick 
+one of the cards when he lands on the Chanceor the Community Chest game squares.  Each player is 
+given $1500 to be-gin the game.  All remaining money, game piece, houses, hotels, and deedsof  unsold  
+property  go  to  the  Bank.    The  Bank  collects  all  taxes,  fines,loans,  and  interest.
+The  Bank  never  goes  ‘broke.’   If  the  Bank  runs  outof MONOPOLYR©money, then more can 
+be issued (see fun fact above).
+
+Players begin on the Go square, roll two dice, and advance as many steps as dots displayed on the 
+two dice.  A player can buy any property, utility, or  railroad  that  isn’t  already  owned  by  
+another  player,  or  must  to  draw Chance/Community  Chest  cards,  pay  rent,  fines,  or  go  
+to  Jail  as  dictated by the square he lands on.  If a player throws a double, then he moves 
+his token the number of steps, is subject to whatever privileges or penalties of the square  
+he lands on, and then tosses the dice again. If a player tossesthree doubles in a single turn, 
+he must go to Jail.
+
+Landing on the Jail square is just ‘visiting Jail’, while landing on the ‘Go to Jail’ square, 
+drawing a ‘Go to Jail’ card, and tossing doubles 3 times during a turn are actual Jail sentences.  
+Any Jail term lasts 3 turns. A player tosses dice at each turn, and if he tosses a double, then 
+he is free to get out of jail and advances the number of steps as his double shows. That player 
+does not take another turn. A player gets out of Jail if he has a ‘Get out of Jail Free’ card, or 
+if another player is willing to sell him a ‘Get out of Jail Free’ card at a negotiated price, or 
+if the player pays a $50 fine.

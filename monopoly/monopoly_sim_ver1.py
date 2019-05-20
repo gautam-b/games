@@ -1,12 +1,10 @@
 '''
 Monopoly board game simulation.
 
-Done:
-* Simple simulation
-
-TODO:
-* Jail rule for three time double roll
-* Incorporate community and chance rules (https://monopoly.fandom.com/wiki/Community_Chest)
+Steps:
+x Simple simulation
+- Jail rule for three time double roll
+- Incorporate community and chance rules (https://monopoly.fandom.com/wiki/Community_Chest)
 '''
 
 import random
@@ -14,7 +12,7 @@ from tqdm import trange
 from prob_on_board import draw_prob
 
 
-ITERATION = 1000_000
+ITERATION = 10_000
 dice = range(1,7)  # 1 to 6 possible  values
 
 

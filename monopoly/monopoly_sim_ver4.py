@@ -1,11 +1,11 @@
 '''
 Monopoly board game simulation.
 
-Done:
-* Simple simulation
-* Jail rule for three time double roll and "GO TO JAIL" square
-* Community chest rules (https://monopoly.fandom.com/wiki/Community_Chest)
-* Chance rules (https://monopoly.fandom.com/wiki/Chance)
+Steps:
+x Simple simulation
+x Jail rule for three time double roll and "GO TO JAIL" square
+x Community chest rules (https://monopoly.fandom.com/wiki/Community_Chest)
+x Chance rules (https://monopoly.fandom.com/wiki/Chance)
 '''
 
 import random

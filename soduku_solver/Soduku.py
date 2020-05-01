@@ -1,5 +1,7 @@
 import time
 import puzzle
+from soduku_img import draw_soduku
+
 
 backtracks = 0
 
@@ -53,11 +55,12 @@ def brute_force(sudoku):
 
 
 def main(sudoku):
-    print_sudoku(sudoku)
+    # print_sudoku(sudoku)
+    draw_soduku(soduku=sudoku)
     t0 = time.perf_counter()
     brute_force(sudoku)
     t1 = time.perf_counter()
-    print_sudoku(sudoku)
+    draw_soduku(soduku=sudoku, text="Soduku Solution", file_name="solution.png")
     print(backtracks)
     print(f"time taken: {(t1-t0):.4f} seconds")
 

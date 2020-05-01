@@ -29,11 +29,12 @@ def draw_soduku(soduku=puzzle.evil, text="Soduku", file_name="soduku.png"):
         y1 = draw_area[0] - y0
 
         if not (i % 3):
-            draw.line([x0, y0, x1, y1], fill=outline_color, width=line_width + 2)  # Vertical line
-            draw.line([y0, x0, y1, x1], fill=outline_color, width=line_width + 2)  # Vertical line
+            line_width = 4
         else:
-            draw.line([x0, y0, x1, y1], fill=outline_color, width=line_width)  # Vertical line
-            draw.line([y0, x0, y1, x1], fill=outline_color, width=line_width)  # Vertical line
+            line_width = 2
+
+        draw.line([x0, y0, x1, y1], fill=outline_color, width=line_width)  # Vertical lines
+        draw.line([y0, x0, y1, x1], fill=outline_color, width=line_width)  # Horizontal lines
 
     for i, row in enumerate(soduku):
         for j, item in enumerate(row):
@@ -45,6 +46,7 @@ def draw_soduku(soduku=puzzle.evil, text="Soduku", file_name="soduku.png"):
     draw.text((20, 380), text, font=header_font, fill=outline_color)
 
     im.save(file_name)
+    # im.show()
 
 
 if __name__ == "__main__":

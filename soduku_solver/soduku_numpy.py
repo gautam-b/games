@@ -38,8 +38,8 @@ def is_valid(sudoku, row_num, col_num, number):
             if (
                 number
                 in sudoku[
-                    region_row_start : region_row_start + 3,
-                    region_col_start : region_col_start + 3,
+                    region_row_start: region_row_start + 3,
+                    region_col_start: region_col_start + 3,
                 ]
             ):
                 return False

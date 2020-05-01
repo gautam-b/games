@@ -1,3 +1,7 @@
+"""
+Solve Soduku Puzzle thorough backtracking and recurssion
+"""
+
 import time
 import puzzle
 from soduku_img import draw_soduku

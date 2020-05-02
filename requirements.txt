@@ -1,0 +1,4 @@
+Pillow
+tqdm
+colorama
+pygame==1.9.6

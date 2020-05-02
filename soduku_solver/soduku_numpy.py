@@ -23,16 +23,12 @@ def find_cell_to_fill(sudoku):
         return i, j
     return ("Solved", 0)
 
-    # for i in range(9):
-    #     for j in range(9):
-    #         if sudoku[i,j] == 0:
-    #             return i, j
-    # return ("Solved", 0)
-
 
 def is_valid(sudoku, row_num, col_num, number):
     if number not in sudoku[row_num, :]:  # check row
         if number not in sudoku[:, col_num]:  # check col
+
+            # check square region
             region_row_start = 3 * (row_num // 3)
             region_col_start = 3 * (col_num // 3)
             if (

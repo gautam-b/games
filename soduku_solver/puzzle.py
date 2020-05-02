@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup, element
 import requests
 from typing import List, Optional
-import urllib.request
 
 diabolical = [
     [4, 0, 7, 0, 0, 0, 6, 0, 0],

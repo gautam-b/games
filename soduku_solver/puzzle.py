@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup, element
 import requests
+<<<<<<< HEAD
 from typing import List
 
 diabolical = [
@@ -150,4 +151,5 @@ random = html_to_array(format_html())
 
 if __name__ == '__main__':
     for i in range(9):
+<<<<<<< HEAD
         print(random[i])

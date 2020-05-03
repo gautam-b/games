@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup, element
 import requests
-from typing import List, Optional
-import urllib.request
+from typing import List
 
 diabolical = [
     [4, 0, 7, 0, 0, 0, 6, 0, 0],
@@ -112,73 +111,43 @@ diff = [
     [0, 0, 0, 0, 0, 9, 7, 0, 0],
 ]
 
-#TODO Somehow fix this non-randomness
-#id 1 = 6, 7 = 2
 
 def format_html() -> element.ResultSet:
-    default_gateway = "https://testdrive-archive.azurewebsites.net/Performance/Sudoku/Default.html"
-
-    html = requests.get(default_gateway).text
+    """ Formats the html for a randomly selected sudoku board in such a manner that only table rows which correspond
+    to rows of the board are kept """
+    html = requests.get("https://nine.websudoku.com/").text
     soup = BeautifulSoup(html, 'lxml')
-    board_cells = soup.find_all('td', class_="boardCell")
-    return board_cells
+
+    board_rows_html = soup.find('table', class_='t').find_all('td')
+    return board_rows_html
 
 
-def html_to_array(board_cells: element.ResultSet) -> List[Optional[int]]:
-    """ Returns the board_cells html data into one large array-like list of integers """
-    cell_possibilities = [None for i in range(89)]
-    for cell in board_cells:
-        have_value = cell.find('div', class_="staticValue")
-        if not have_value:
-            have_value = cell.find('div', class_="editValue")
-            value = 0
-        else:
-            value = int(cell.span.text)
-        cell_possibilities[int(have_value.attrs['id'])] = value
+def html_to_array(board_rows: element.ResultSet) -> List[List[int]]:
+    """ Returns the board_rows html data into one 2-dimensional  """
+    final_board, row_list = list(), list()
 
-    cell_singular = [i for i in cell_possibilities if i is not None]
-    return cell_singular
+    for cell in board_rows:
 
+        if len(row_list) >= 9:
+            final_board.append(row_list)
+            row_list = []
 
-def array_to_final_board(input_list: list) -> List[List[int]]:
-    """ Returns the final board using output from html_to_array
+        try:
+            value_cell = int(cell.input['value'])
+        except KeyError:
+            value_cell = 0
 
-    Precondition: <input_list> is of length 81
-    """
-    temp_final_list = []
+        row_list.append(value_cell)
 
-    for i in range(9):
-        row_list = list()
-        for j in range(9):
-            row_list.append(input_list[i*9 + j])
-        temp_final_list.append(row_list)
-
-    return fix_board(temp_final_list)
-
-
-def fix_board(board_broken: List[int]) -> List[int]:
-    """ Returns a transposed version of board_broken
-
-    Precondition: <board_broken> is a list with 9 nested lists of size 9
-    """
-    final_board = list()
-    for big_row_partition in range(3):
-        row_1, row_2, row_3 = [], [], []
-        for row_selection in range(3):
-            row = board_broken[(big_row_partition * 3) + row_selection]
-            row_1.extend(row[:3])
-            row_2.extend(row[3:6])
-            row_3.extend(row[6:])
-
-        final_board.append(row_1)
-        final_board.append(row_2)
-        final_board.append(row_3)
+    # Final row
+    final_board.append(row_list)
 
     return final_board
 
-daily = array_to_final_board(html_to_array(format_html()))
+
+random = html_to_array(format_html())
 
 
 if __name__ == '__main__':
     for i in range(9):
-        print(daily[i])
+        print(random[i])

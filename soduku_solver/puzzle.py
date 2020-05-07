@@ -1,3 +1,7 @@
+from bs4 import BeautifulSoup, element
+import requests
+from typing import List
+
 diabolical = [
     [4, 0, 7, 0, 0, 0, 6, 0, 0],
     [9, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -106,3 +110,44 @@ diff = [
     [0, 0, 4, 0, 0, 0, 0, 3, 0],
     [0, 0, 0, 0, 0, 9, 7, 0, 0],
 ]
+
+
+def format_html() -> element.ResultSet:
+    """ Formats the html for a randomly selected sudoku board in such a manner that only table rows which correspond
+    to rows of the board are kept """
+    html = requests.get("https://nine.websudoku.com/").text
+    soup = BeautifulSoup(html, 'lxml')
+
+    board_rows_html = soup.find('table', class_='t').find_all('td')
+    return board_rows_html
+
+
+def html_to_array(board_rows: element.ResultSet) -> List[List[int]]:
+    """ Returns the board_rows html data into one 2-dimensional  """
+    final_board, row_list = list(), list()
+
+    for cell in board_rows:
+
+        if len(row_list) >= 9:
+            final_board.append(row_list)
+            row_list = []
+
+        try:
+            value_cell = int(cell.input['value'])
+        except KeyError:
+            value_cell = 0
+
+        row_list.append(value_cell)
+
+    # Final row
+    final_board.append(row_list)
+
+    return final_board
+
+
+random = html_to_array(format_html())
+
+
+if __name__ == '__main__':
+    for i in range(9):
+        print(random[i])

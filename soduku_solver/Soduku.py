@@ -5,18 +5,10 @@ Solve Soduku Puzzle thorough backtracking and recurssion
 import time
 import puzzle
 from soduku_img import draw_soduku
+from utils import print_sudoku
 
 
 backtracks = 0
-
-
-def print_sudoku(sudoku):
-    for i, row in enumerate(sudoku):
-        if i in [3, 6]:
-            print("-" * 29)
-        print(row[:3], end=" ")
-        print(row[3:6], end=" ")
-        print(row[6:9])
 
 
 def find_cell_to_fill(sudoku):
@@ -69,6 +61,8 @@ def main(sudoku):
     draw_soduku(soduku=sudoku, text="Soduku Solution", file_name="solution.png")
     print(backtracks)
     print(f"time taken: {(t1-t0):.4f} seconds")
+    # print_sudoku(sudoku)
+
 
 
 main(puzzle.random)

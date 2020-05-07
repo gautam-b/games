@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup, element
 import requests
 from typing import List
+from utils import print_sudoku
+
 
 diabolical = [
     [4, 0, 7, 0, 0, 0, 6, 0, 0],
@@ -149,5 +151,4 @@ random = html_to_array(format_html())
 
 
 if __name__ == '__main__':
-    for i in range(9):
-        print(random[i])
+    print_sudoku(random)

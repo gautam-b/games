@@ -12,23 +12,20 @@ def main():
 
     print("Simulating the case where player do not switch the door")
     win_pct_not_switched = monty_hall_simulation(num_of_rounds, switch=False)
-    print(
-        f"When player does not switch the door, his probability to win is {win_pct_not_switched:.4f}%"
-    )
+    print(f"When player does not switch the door, his probability to win is {win_pct_not_switched:.4f}%")
     print()
 
     print("Simulating the case where player switch the door")
     win_pct_switched = monty_hall_simulation(num_of_rounds, switch=True)
-    print(
-        f"When player switch the door, his probability to win is {win_pct_switched:.4f}%"
-    )
+    print(f"When player switch the door, his probability to win is {win_pct_switched:.4f}%")
 
 
 def monty_hall_simulation(num_of_rounds=10_000, switch=False):
-    doors = ["A", "B", "C"]
     win_count = 0
 
     for _ in trange(num_of_rounds):
+        doors = ["A", "B", "C"]
+
         # Host choose a door and put the prize behind that door
         host_choice = random.choice(doors)
 
@@ -42,13 +39,10 @@ def monty_hall_simulation(num_of_rounds=10_000, switch=False):
                 continue
             break
 
-        # Remaining closed doors
-        remaining_closed_doors = doors.copy()
-        remaining_closed_doors.remove(open_door)
-
         # Host gives player an option to switch door
         if switch:  # Player choice
-            player_choice = random.choice(remaining_closed_doors)
+            doors.remove(open_door)
+            player_choice = random.choice(doors)
 
         # Host open the remaining two door and player sees if it wins or not
         if player_choice == host_choice:

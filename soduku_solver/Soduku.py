@@ -71,4 +71,4 @@ def main(sudoku):
     print(f"time taken: {(t1-t0):.4f} seconds")
 
 
-main(puzzle.diabolical)
+main(puzzle.random)
